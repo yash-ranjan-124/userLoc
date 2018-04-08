@@ -1,0 +1,66 @@
+<%-include common/header.ejs%>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5LBD6mlvaCo0muA1_35Ut0u_9zV_BoT0&libraries=places"></script>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" style="color:white;" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<strong><%=firstname+" "+lastname%></strong></a>
+        <a href="/logout" class="navbar-brand pull-right" style="color:white;"><span class="glyphicon glyphicon-log-out"></span>&nbsp;<strong>Logout</strong></a>
+    </nav>
+    <div class="container" id="searbox-container">
+    	<div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div id="imaginary_container">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" id="searchTextField" placeholder="Search" >
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
+    <div class="container" id="table-container">
+    <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Location Name</th>
+                <th>Address</th>
+                <th>Type</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Place Id</th>
+                <th>Search Date</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% if(search_data){
+              for(var i=0;i<search_data.length;i++){
+          %>
+          <tr>
+            <td><%=search_data[i]['search_name']%></td>
+            <td><%=search_data[i]['address']%></td>
+            <td><%=search_data[i]['type']%></td>
+            <td><%=search_data[i]['latitude']%></td>
+            <td><%=search_data[i]['longitude']%></td>
+            <td><%=search_data[i]['place_id']%></td>
+            <td><%=search_data[i]['search_date']%></td>
+          </tr>
+        <%} }%>
+
+        </tbody>
+</table>
+</div>
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        var UNAME = "<%=username%>";
+    </script>
+    <script src="javascripts/home.js"></script>
+    <script>
+        home.init();
+
+    </script>
+</body>
+</html>

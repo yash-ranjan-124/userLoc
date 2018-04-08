@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "locationStore",
+      "script": "./bin/www",
+      "interpreter" : 'node@8.9.4',
+      "error_file"      : "/logs/application/err.log",
+      "out_file"        : "/logs/application/out.log",
+      "watch": true,
+      "merge_logs": true,
+      "exec_mode"  : "cluster",
+      "instances" :2,
+    "log_date_format" : "YYYY-MM-DD HH:mm:ss.SSS",
+      "env": {
+    "PORT": 6060,
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+    "PORT": 6060,
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

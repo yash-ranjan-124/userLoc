@@ -1,0 +1,58 @@
+
+#searbox-container{
+position: absolute;
+top:90px;
+},
+#imaginary_container{
+    margin-top:20%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+#table-container{
+  position: absolute;
+  top:286px;
+
+}
+
+
+@media only screen and (max-width: 767px) and (min-width: 505px)  {
+    .pac-container{
+        width: 95% !important;
+    }
+}
+@media only screen and (max-width: 505px) and (min-width: 320px)  {
+    .pac-container{
+        width: 92% !important;
+    }
+}
+@media only screen and (max-width: 320px) and (min-width: 200px)  {
+    .pac-container{
+        width: 87% !important;
+    }
+}
+@media only screen and (max-width: 800px) and (min-width: 768px)  {
+    .pac-container{
+        width: 50% !important;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 800px)  {
+    .pac-container{
+        width: 37% !important;
+    }
+}
+@media only screen and (max-width: 3000px) and (min-width: 1200px)  {
+    .pac-container{
+        width: 40.5% !important;
+    }
+}
