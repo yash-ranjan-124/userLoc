@@ -3,7 +3,7 @@
 var home = function(){
     var table;
     return {
-        init:function(){
+        init:function(){ //basic initializiation for app home
             google.maps.event.addDomListener(window, 'load', this.searchInit());
             this.dataTableInit();
             this.alignTable();
@@ -12,7 +12,7 @@ var home = function(){
             $(window).on('resize',this.alignSearchContainer);
 
         },
-        searchInit:function(){
+        searchInit:function(){ //initialize input to use google api for location autocomplete
             var input = document.getElementById('searchTextField');
             var autocomplete = new google.maps.places.Autocomplete(input);
             var self = this;
@@ -22,25 +22,25 @@ var home = function(){
             });
 
         },
-        dataTableInit:function(){
+        dataTableInit:function(){ //initializes data table
             table = $('#datatable').DataTable();
 
         },
-        alignTable:function(){
+        alignTable:function(){ //aligns datatable at mid of page width
             var screenWidth = $(window).width();
             var tableWidth = $("#table-container").outerWidth(true);
             var positionTable = (screenWidth - tableWidth)/2;
             $("#table-container").css('position','absolute');
             $("#table-container").css('left',positionTable+'px');
         },
-        alignSearchContainer:function() {
+        alignSearchContainer:function() { // aligns alignSearchContainer at mid of page width
             var screenWidth = $(window).width();
             var tableWidth = $("#searbox-container").outerWidth(true);
             var positionTable = (screenWidth - tableWidth)/2;
             $("#searbox-container").css('position','absolute');
             $("#searbox-container").css('left',positionTable+'px');
         },
-        saveSearchData:function(data){
+        saveSearchData:function(data){ //save search data into table
             var searchName = data.name;
             var address = data.formatted_address;
             var type = data.types[0];
@@ -84,7 +84,7 @@ var home = function(){
             });
 
         },
-        showupdatedTableData:function(){
+        showupdatedTableData:function(){ //show upadated search data
             $.ajax({
                 url:"/getSearch?uname="+UNAME,
                 type:"GET",
@@ -119,7 +119,7 @@ var home = function(){
 
 
         },
-        diplayInitialTableData:function(){
+        diplayInitialTableData:function(){ //displaying table when first time login
             $.ajax({
                 url:"/getAllSearch?uname="+UNAME,
                 type:"GET",

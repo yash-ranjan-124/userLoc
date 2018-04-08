@@ -45,7 +45,7 @@ router.get('/login',function(req,res){
 
 
 /********************************* GET home page.******************* */
-router.get(['/','/home'],authenticate, async (req, res)=> {
+router.get(['/','/home'],authenticate, async (req, res)=> { 
   let access_token = req.cookies['acc_tkn'];
   let user_data = jwt.decode(access_token);
   user_data['title'] = "Home";
@@ -57,20 +57,20 @@ router.get(['/','/home'],authenticate, async (req, res)=> {
 /**************************location data handler*******************************/
 
 
-router.post('/saveSearch',async (req,res)=>{
+router.post('/saveSearch',async (req,res)=>{ //inserts Searches to database
   let data = req.body;
   let response = await funct.insertSearchData(data);
   res.json(response);
 });
 
 
-router.get('/getSearch',async (req,res)=>{
+router.get('/getSearch',async (req,res)=>{ // fetchs all current searches by a user
   let username = req.query.uname;
   let response = await funct.getSearchData(username);
   res.json(response);
 });
 
-router.get('/getAllSearch',async (req,res)=>{
+router.get('/getAllSearch',async (req,res)=>{ //fetchs all search data by a perticular user
   let username = req.query.uname;
   let response = await funct.getAllSearch(username);
   res.json(response);

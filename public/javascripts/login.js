@@ -2,9 +2,9 @@
 var appLogReg = function(){
     return {
         init:function(){
-
+          //initializiation will come here
         },
-        getlogin:function(formdata){
+        getlogin:function(formdata){ //for user login jwt based
             if(appLogReg.validateLoginData(formdata)){
                 var username = formdata[0]['value'];
                 var password = formdata[1]['value'];
@@ -36,7 +36,7 @@ var appLogReg = function(){
 
 
         },
-        validateLoginData:function(formdata){
+        validateLoginData:function(formdata){ //validates form data for login
             var usernameRegex = /^[a-zA-Z0-9@\.]+$/;
             if(!formdata){
                 $("#login-alert").html("username and password is required!!");
@@ -72,7 +72,7 @@ var appLogReg = function(){
 
 
         },
-        registerUser:function(formdata){
+        registerUser:function(formdata){ //for registering user to the application
              var valid = appLogReg.validateRegisterData(formdata);
             if(valid){
                 var postdata={};
@@ -105,7 +105,7 @@ var appLogReg = function(){
                 return false;
             }
         },
-        validateRegisterData:function(formdata){
+        validateRegisterData:function(formdata){ //validates register form data
             if(formdata[0]['value'] !="" && formdata[1]['value'] !="" && formdata[2]['value'] !="" && formdata[4]['value'] !="" ){
                 var emailRegEx = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
                 var usernameRegEx = /^[a-zA-Z0-9@_\.]+$/;

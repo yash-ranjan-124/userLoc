@@ -1,3 +1,5 @@
+//basic functionalities of the app
+
 const jwt = require('./jwt');
 let Sqlite = require('./sqliteOrm');
 
